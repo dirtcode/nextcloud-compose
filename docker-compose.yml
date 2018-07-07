@@ -16,6 +16,8 @@ services:
     volumes:
       - nextcloud:/var/www/html
     environment:
+      - NEXTCLOUD_ADMIN_USER=ncadmin
+      - NEXTCLOUD_ADMIN_PASSWORD=
       - MYSQL_HOST=db
     env_file:
       - db.env
@@ -29,7 +31,7 @@ services:
       - nextcloud:/var/www/html:ro
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     environment:
-      - VIRTUAL_HOST=10.0.0.90
+      - VIRTUAL_HOST=10.0.0.64
     depends_on:
       - app
       - proxy
